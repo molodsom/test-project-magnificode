@@ -48,6 +48,7 @@ CSRF_TRUSTED_ORIGINS = json.loads(get_env('CSRF_TRUSTED_ORIGINS'))
 
 INSTALLED_APPS = [
     'testProjectMagnificode',
+    'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
