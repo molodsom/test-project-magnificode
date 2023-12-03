@@ -17,6 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from testProjectMagnificode.views import QuoteListCreateView, QuoteRetrieveUpdateDeleteView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/quotes/', QuoteListCreateView.as_view(), name='quote-list-create'),
+    path('api/quotes/<int:pk>/', QuoteRetrieveUpdateDeleteView.as_view(), name='quote-retrieve-update-delete'),
 ]
