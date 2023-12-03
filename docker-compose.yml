@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  backend:
+    depends_on:
+      - db
+    image: ghcr.io/molodsom/test-project-magnificode:latest
+    restart: always
+    environment:
+      ALLOWED_HOSTS: '["*"]'
+      CSRF_TRUSTED_ORIGINS: '["https://*", "http://localhost:3000"]'
+      DEBUG: 'True'
+      DATABASE_HOST: db
+      DATABASE_PORT: 5432
+      DATABASE_NAME: testproj
+      DATABASE_USER: testproj
+      DATABASE_PASSWORD: testproj
+  db:
+    image: postgres:14.5-alpine
+    environment:
+      POSTGRES_DB: testproj
+      POSTGRES_USER: testproj
+      POSTGRES_PASSWORD: testproj
